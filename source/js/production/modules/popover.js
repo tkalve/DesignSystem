@@ -6,7 +6,7 @@ var popoverLocalInit = function() {
       var position = $(source).offset();
       $(context).addClass($(source).attr('data-popover-class'));
       if ($(source).hasClass('a-js-popoverBig')) {
-        return 'bottom';
+        return 'top';
       }
       if (position.left < 125) {
         return 'right';
@@ -22,7 +22,7 @@ var popoverLocalInit = function() {
       }
       return false;
     },
-    template: '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>'
+    template: '<div class="popover" role="popover"><div class="arrow"></div><div class="popover-body"></div></div>'
   };
 
   $('[data-toggle="popover"]').popover(options);
@@ -152,6 +152,24 @@ var popoverGlobalInit = function() {
       }
     }
   }
+
+    /* $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-popoverBig', function() {
+    var triggerElement = this;
+    //var x=$(triggerElement).offset().left;
+    //console.log(x);
+    var y = $(triggerElement).offset().top + $('.a-js-popoverBig').height();
+    //$('.popover-big').css('transform', '');
+    console.log($('.popover-big').attr('style'));
+    $('.popover-big').attr('style',
+    $('.popover-big').attr('style').replace(/translate3D\(.*?\)/,
+    'translate3D('+ 0 +'px, '+ y + 'px, 0px)'));
+    $('.popover-big').css('transform', 'translate3d('+ 0 +'px, '+ y + 'px, 0px)');
+    //$('.bs-popover-bottom').attr('style',
+    $('.bs-popover-bottom').attr('style').replace(/translate3D\(.*?\)/,
+    'translate3D('+ 0 +'px, '+ y + 'px, 0px)'));
+    //$('.popover-big').css('top',parseInt($('.popover').css('top')) + y + 'px');
+    console.log($('.bs-popover-bottom').attr('style'));
+  });*/
 
   $('body').on('shown.bs.popover', '.a-js-persistPopover', function() {
     $('.arrow').html('<style>.popover-big:after { left: ' + ($(this).offset().left + 10.5) + 'px !important; }</style>');

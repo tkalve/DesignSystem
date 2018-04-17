@@ -1,7 +1,6 @@
 {
   "popover-aria-label": "valid",
   "open-popover-class": "a-helpIconButton a-helpIconButton--blue a-js-togglePopoverIcons",
-  "popover-data-target": "myPopup",
   "popover-title": false,
   "popover-content": false,
   "popover-class": "",
